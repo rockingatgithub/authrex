@@ -87,7 +87,6 @@ module.exports.resetFormRedirect = async function (req, res) {
 module.exports.dbPasswordUpdate = async function (req, res) {
   try {
     if (req.body.password === req.body.confirm_password) {
-      console.log("mail is", req.body.email, "pass is", req.body.password);
       let user = await User.findOneAndUpdate(
         { email: req.body.email },
         {
