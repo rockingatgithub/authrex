@@ -10,6 +10,7 @@ module.exports.profile = function (req, res) {
 
 module.exports.signUp = function (req, res) {
   if (req.isAuthenticated()) {
+    req.flash("success", "Signing Up successfull");
     return res.redirect("/users/profile");
   }
   return res.render("signUp", {
@@ -48,12 +49,13 @@ module.exports.create = function (req, res) {
 };
 
 module.exports.createSession = function (req, res) {
+  req.flash("success", "LoggedIn successfully");
   return res.redirect("/");
 };
 
 module.exports.destroySession = function (req, res) {
   req.logout();
-
+  req.flash("success", "You have been logged out");
   return res.redirect("/");
 };
 
@@ -74,9 +76,17 @@ module.exports.passwordUpdate = async function (req, res) {
         console.log("error in creating a queue");
         return;
       }
-      console.log("job enqueued", job.id);
+      // req.flash("success", "Reset mail sent");
+      return res.render("mail_sent", {
+        name: user.name,
+        flash: {
+          success: "Reset mail sent",
+        },
+      });
+      // console.log("job enqueued", job.id);
     });
   } else {
+    req.flash("error", "Sign up to continue");
     return res.redirect("/users/signUp");
   }
 };
@@ -105,9 +115,14 @@ module.exports.dbPasswordUpdate = async function (req, res) {
           password: req.body.password,
         }
       );
+      req.flash("alert", "Password Changed ...Sign In again");
       return res.redirect("/users/signIn");
+    } else {
+      req.flash("warning", "Password doesn't match");
+      return res.redirect("back");
     }
   } catch (err) {
+    req.flash("info", "Sign up to continue");
     return res.redirect("/users/signUp");
   }
 };

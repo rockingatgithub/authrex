@@ -11,6 +11,8 @@ const passportJWT = require("./config/passport-jwt-strategy");
 const passportGoogle = require("./config/passport-goole-oauth2-strategy");
 const { Mongoose } = require("mongoose");
 const MongoStore = require("connect-mongo")(session); //stores session in db....
+const flash = require("connect-flash");
+const customMware = require("./config/middleware");
 
 app.use(express.urlencoded());
 
@@ -53,6 +55,8 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
+app.use(flash());
+app.use(customMware.setFlash);
 // use express router
 app.use("/", require("./routes"));
 
