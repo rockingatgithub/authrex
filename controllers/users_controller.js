@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const requestMailer = require("../mailers/auth_mailer");
+
 module.exports.profile = function (req, res) {
   res.end("<h1>User Profile</h1>");
 };
@@ -50,4 +52,51 @@ module.exports.destroySession = function (req, res) {
   req.logout();
 
   return res.redirect("/");
+};
+
+module.exports.passwordResetRedirect = function (req, res) {
+  return res.render("pass_reset", {
+    title: "Reset Your Password",
+  });
+};
+
+module.exports.passwordUpdate = async function (req, res) {
+  let user = await User.findOne({ email: req.body.email });
+  if (user) {
+    requestMailer.newRequest(user);
+  } else {
+    return res.redirect("/users/signUp");
+  }
+};
+
+module.exports.resetFormRedirect = async function (req, res) {
+  try {
+    let user = await User.findById(req.params.id);
+    if (user) {
+      return res.render("reset_Form", {
+        name: user.name,
+        email: user.email,
+      });
+    }
+    return res.redirect("/users/signUp");
+  } catch (err) {
+    return res.redirect("/users/signIn");
+  }
+};
+
+module.exports.dbPasswordUpdate = async function (req, res) {
+  try {
+    if (req.body.password === req.body.confirm_password) {
+      console.log("mail is", req.body.email, "pass is", req.body.password);
+      let user = await User.findOneAndUpdate(
+        { email: req.body.email },
+        {
+          password: req.body.password,
+        }
+      );
+      return res.redirect("/users/signIn");
+    }
+  } catch (err) {
+    return res.redirect("/users/signUp");
+  }
 };

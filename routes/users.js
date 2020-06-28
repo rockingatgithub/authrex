@@ -19,4 +19,22 @@ router.post(
 
 router.get("/signOut", usersConrtoller.destroySession);
 
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/users/signIn" }),
+  usersConrtoller.createSession
+);
+
+router.get("/resetPasswordPage", usersConrtoller.passwordResetRedirect);
+
+router.post("/resetPassword", usersConrtoller.passwordUpdate);
+
+router.get("/passwordReset/:id", usersConrtoller.resetFormRedirect);
+
+router.post("/changePassword", usersConrtoller.dbPasswordUpdate);
+
 module.exports = router;
