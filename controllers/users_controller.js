@@ -1,5 +1,8 @@
 const User = require("../models/user");
-const requestMailer = require("../mailers/auth_mailer");
+// const requestMailer = require("../mailers/auth_mailer");
+
+const emailWorkers = require("../workers/email_worker");
+const queue = require("../config/kue");
 
 module.exports.profile = function (req, res) {
   res.end("<h1>User Profile</h1>");
@@ -55,6 +58,8 @@ module.exports.destroySession = function (req, res) {
 };
 
 module.exports.passwordResetRedirect = function (req, res) {
+  req.logout();
+
   return res.render("pass_reset", {
     title: "Reset Your Password",
   });
@@ -63,7 +68,14 @@ module.exports.passwordResetRedirect = function (req, res) {
 module.exports.passwordUpdate = async function (req, res) {
   let user = await User.findOne({ email: req.body.email });
   if (user) {
-    requestMailer.newRequest(user);
+    // requestMailer.newRequest(user);
+    let job = queue.create("emails", user).save(function (err) {
+      if (err) {
+        console.log("error in creating a queue");
+        return;
+      }
+      console.log("job enqueued", job.id);
+    });
   } else {
     return res.redirect("/users/signUp");
   }
@@ -71,7 +83,7 @@ module.exports.passwordUpdate = async function (req, res) {
 
 module.exports.resetFormRedirect = async function (req, res) {
   try {
-    let user = await User.findById(req.params.id);
+    let user = await User.findOne({ email: req.params.email });
     if (user) {
       return res.render("reset_Form", {
         name: user.name,

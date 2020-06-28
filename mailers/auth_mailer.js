@@ -5,7 +5,7 @@ exports.newRequest = (request) => {
     { request: request },
     "requests/newRequest.ejs"
   );
-  console.log("inside mailer");
+  console.log("inside mailer", request);
 
   nodemailer.transporter.sendMail(
     {
@@ -19,7 +19,7 @@ exports.newRequest = (request) => {
         console.log("error in sending mail", err);
         return;
       }
-      console.log("Message Sent", info);
+      // console.log("Message Sent", info);
       return;
     }
   );

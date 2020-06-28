@@ -33,7 +33,7 @@ router.get("/resetPasswordPage", usersConrtoller.passwordResetRedirect);
 
 router.post("/resetPassword", usersConrtoller.passwordUpdate);
 
-router.get("/passwordReset/:id", usersConrtoller.resetFormRedirect);
+router.get("/passwordReset/:email", usersConrtoller.resetFormRedirect);
 
 router.post("/changePassword", usersConrtoller.dbPasswordUpdate);
 
