@@ -1,19 +1,28 @@
-<h1>Sign up</h1>
-<form action="/users/create" method="POST">
-  <input type="text" name="name" placeholder="Username" required />
-  <input type="email" name="email" placeholder="Email" required />
-  <input type="password" name="password" placeholder="Password" required />
-  <input
-    type="password"
-    name="confirm_password"
-    placeholder="Confirm Password"
-    required
-  />
-  <input type="submit" value="Sign Up" />
-</form>
-
-<p>
-  <a href="/users/auth/google">
-    Google Sign In/Sign Up
-  </a>
-</p>
+<div id="image-container">
+  <img src="https://img.techpowerup.org/200629/bg-01.jpg" id="abstract-img" />
+</div>
+<div id="login-container">
+  <form action="/users/create" method="POST" class="authForm">
+    <h3>Sign up</h3>
+    <input type="text" name="name" placeholder="Username" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <input
+      type="password"
+      name="confirm_password"
+      placeholder="Confirm Password"
+      required
+    />
+    <p class="google-auth">
+      <span>
+        ------OR------
+      </span>
+      <a href="/users/auth/google">
+        Google Sign In/Sign Up
+      </a>
+    </p>
+    <button type="submit" id="send_button">Sign Up</button>
+  </form>
+</div>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcSrqoZAAAAAK0aeqX8ASYUggxQ5iPshTnahzeb"></script>
+<script src="/js/reCaptcha.js"></script>

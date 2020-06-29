@@ -1,3 +1,106 @@
 body {
   margin: 0;
 }
+
+h1,
+h3 {
+  font-family: Times;
+}
+
+.authForm {
+  display: inline-block;
+  height: auto;
+  width: 400px;
+  position: relative;
+  margin-left: 10%;
+  top: -35%;
+}
+
+.forgot-password {
+  display: inline-block;
+  position: absolute;
+  margin-top: 43%;
+  margin-left: -41%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: grey;
+}
+a:hover {
+  text-decoration: none;
+  color: slategray;
+}
+
+#abstract-img {
+  height: 100vh;
+  width: 50vw;
+}
+
+.google-auth {
+  display: inline-block;
+  margin-top: 28%;
+  position: absolute;
+  margin-left: -37%;
+}
+
+.google-auth > span {
+  display: inline-block;
+  color: grey;
+}
+
+.google-auth > a {
+  display: inline-block;
+  margin-left: -15%;
+}
+
+#login-container {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  width: 40vw;
+}
+
+#image-container {
+  display: inline-block;
+}
+
+.authform > h3 {
+  margin-left: 19%;
+  color: teal;
+  margin-bottom: 7%;
+}
+
+input {
+  margin-left: 20%;
+  display: inline-block;
+  height: 40px;
+  width: 244px;
+  margin-bottom: 5%;
+}
+
+#send_button {
+  display: inline-block;
+  position: absolute;
+  margin-top: 17%;
+  margin-left: -40%;
+  border: 1px;
+  color: teal;
+  height: 34px;
+  width: 91px;
+}
+
+#title-head {
+  position: absolute;
+  margin-left: 10%;
+  margin-top: -33%;
+}
+
+#reset-head {
+  position: absolute;
+  margin-top: -31%;
+  margin-left: 19%;
+}

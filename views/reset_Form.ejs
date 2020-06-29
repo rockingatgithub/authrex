@@ -1,17 +1,20 @@
-<h1>Hey <%= name%></h1>
-<br />
-<br />
-<p>You are going to reset password for <%= email%></p>
+<div id="image-container">
+  <img src="https://img.techpowerup.org/200629/bg-01.jpg" id="abstract-img" />
+</div>
+<div id="login-container">
+  <h3>Hey <%= name%></h3>
+  <p>You are going to reset password for <%= email%></p>
 
-<form action="/users/changePassword" method="POST">
-  <input type="email" value="<%= email%>" name="email" readonly />
-  <input type="password" placeholder="Enter new password" name="password" />
-  <br />
-  <input
-    type="password"
-    placeholder="Confirm Password"
-    name="confirm_password"
-  />
-  <br />
-  <input type="submit" value="Reset Password" />
-</form>
+  <form action="/users/changePassword" method="POST">
+    <input type="email" value="<%= email%>" name="email" readonly />
+    <input type="password" placeholder="Enter new password" name="password" />
+    <br />
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      name="confirm_password"
+    />
+    <br />
+    <input type="submit" value="Reset Password" />
+  </form>
+</div>

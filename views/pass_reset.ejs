@@ -1,6 +1,11 @@
-<h1><%= title%></h1>
+<div id="image-container">
+  <img src="https://img.techpowerup.org/200629/bg-01.jpg" id="abstract-img" />
+</div>
+<div id="login-container">
+  <h1 id="reset-head"><%= title%></h1>
 
-<form action="/users/resetPassword" method="POST">
-  <input type="email" placeholder="Email" name="email" />
-  <input type="submit" value="Reset Password" />
-</form>
+  <form action="/users/resetPassword" method="POST">
+    <input type="email" placeholder="Email" name="email" />
+    <input type="submit" value="Reset Password" />
+  </form>
+</div>

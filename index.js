@@ -13,8 +13,11 @@ const { Mongoose } = require("mongoose");
 const MongoStore = require("connect-mongo")(session); //stores session in db....
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
+const bodyParser = require("body-parser");
 
 app.use(express.urlencoded());
+
+app.use(bodyParser.json());
 
 app.use(cookieParser());
 
