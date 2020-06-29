@@ -14,11 +14,23 @@ passport.use(
           console.log("Error in finding user ---> Passport");
           return done(err);
         }
-        if (!user || user.password != password) {
+        if (!user) {
           console.log("Invalid Username/ Password");
           return done(null, false);
         }
-        return done(null, user);
+        if (user) {
+          user.comparePassword(password, function (err, isMatch) {
+            if (err) {
+              throw err;
+            }
+            // console.log("i am in", password, " ", isMatch);
+            if (isMatch) {
+              return done(null, user);
+            }
+            console.log("Invalid Username/ Password");
+            return done(null, false);
+          });
+        }
       });
     }
   )
