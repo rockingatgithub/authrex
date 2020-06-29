@@ -8,10 +8,10 @@ const User = require("../models/user");
 passport.use(
   new googleStrategy(
     {
-      clientID:
-        "218521158723-ja54l7hakp62o6k0mc5tj52tvmcq04oq.apps.googleusercontent.com",
-      clientSecret: "nxWf6s19vpa1oT8bGIV_qsgT",
-      callbackURL: "http://localhost:8000/users/auth/google/callback",
+      //configure with your google ouath api credentials....
+      clientID: "",
+      clientSecret: "",
+      callbackURL: "",
     },
     function (accessToken, refreshToken, profile, done) {
       User.findOne({ email: profile.emails[0].value }).exec(function (

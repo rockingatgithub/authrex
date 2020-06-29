@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost/authrex_dev", {
+//give db address
+mongoose.connect("", {
   useFindAndModify: false,
 });
 

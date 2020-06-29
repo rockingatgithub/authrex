@@ -24,8 +24,8 @@ function handleClick(token) {
 }
 
 grecaptcha.ready(function () {
-  grecaptcha
-    .execute("6LcSrqoZAAAAAK0aeqX8ASYUggxQ5iPshTnahzeb", { action: "demo" })
+  grecaptcha //give site of google recaptcha api.....
+    .execute("", { action: "demo" })
     .then(function (token) {
       document
         .querySelector("#send_button")

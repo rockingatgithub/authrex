@@ -35,7 +35,7 @@ app.set("views", "./views");
 app.use(
   session({
     name: "authrex",
-    secret: "blahsomething",
+    secret: "blahsomething", //change secret as per your need....
     saveUninitialized: false,
     resave: false,
     cookie: {
