@@ -4,12 +4,14 @@ const passport = require("passport");
 
 const usersConrtoller = require("../controllers/users_controller");
 
-router.get("/profile", passport.checkAuthentication, usersConrtoller.profile);
+// ======= handling users routes=========
+router.get("/profile", passport.checkAuthentication, usersConrtoller.profile); //===== passport authentcation as middleware=========
 router.get("/signUp", usersConrtoller.signUp);
 router.get("/signIn", usersConrtoller.signIn);
 
 router.post("/create", usersConrtoller.create);
 router.post(
+  //===== passport authentcation as middleware=========
   "/create-session",
   passport.authenticate("local", {
     failureRedirect: "/users/signIn",

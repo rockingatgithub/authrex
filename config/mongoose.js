@@ -1,3 +1,5 @@
+// ======configure mongoose to fetch data from databse=======
+
 const mongoose = require("mongoose");
 //give db address
 mongoose.connect("", {

@@ -1,11 +1,7 @@
-// module.exports.index = function (req, res) {
-//   return res.json(200, {
-//     message: "Successfully Login",
-//   });
-// };
-
 const User = require("../../../models/user");
 const jwt = require("jsonwebtoken");
+
+// =======create a new session=========
 
 module.exports.createSession = async function (req, res) {
   try {

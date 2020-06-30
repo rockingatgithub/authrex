@@ -1,3 +1,5 @@
+// =======handling button click to make captcha verification and submit form=======
+
 function handleClick(token) {
   return function () {
     var data = {

@@ -1,6 +1,8 @@
 const express = require("express");
 
 const router = express.Router();
+
+// =======controllers for handling routes========
 const homeController = require("../controllers/home_controller");
 const captchaController = require("../controllers/gCaptchaController");
 

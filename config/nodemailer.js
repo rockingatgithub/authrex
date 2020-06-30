@@ -2,6 +2,8 @@ const nodemailer = require("nodemailer");
 const ejs = require("ejs");
 const path = require("path");
 
+// =======configuring transporter for sending mails =======
+
 let transporter = nodemailer.createTransport({
   service: "", //set you mailer and configure
   host: "",

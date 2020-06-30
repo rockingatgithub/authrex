@@ -6,6 +6,8 @@ const ExtractJWT = require("passport-jwt").ExtractJwt;
 
 const User = require("../models/user");
 
+// =======configuring jwt strategy for api based authentication =========
+
 let opts = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
   secretOrKey: "", //choose key as per your choice

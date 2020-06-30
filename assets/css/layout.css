@@ -1,3 +1,5 @@
+/* ====styles for body ======== */
+
 body {
   margin: 0;
 }
@@ -7,6 +9,8 @@ h3 {
   font-family: Times;
 }
 
+/* ======stying the login/signup form======= */
+
 .authForm {
   display: inline-block;
   height: auto;
@@ -15,6 +19,8 @@ h3 {
   margin-left: 10%;
   top: -35%;
 }
+
+/* =====styling forgot password link========= */
 
 .forgot-password {
   display: inline-block;
@@ -40,6 +46,8 @@ a:hover {
   width: 50vw;
 }
 
+/* =====styling google auth link===== */
+
 .google-auth {
   display: inline-block;
   margin-top: 28%;
@@ -56,6 +64,8 @@ a:hover {
   display: inline-block;
   margin-left: -15%;
 }
+
+/* ======styling login container====== */
 
 #login-container {
   display: inline-block;
@@ -74,6 +84,8 @@ a:hover {
   margin-bottom: 7%;
 }
 
+/* ======styling input tags====== */
+
 input {
   margin-left: 20%;
   display: inline-block;
@@ -81,6 +93,8 @@ input {
   width: 244px;
   margin-bottom: 5%;
 }
+
+/* ======styling submit button======= */
 
 #send_button {
   display: inline-block;

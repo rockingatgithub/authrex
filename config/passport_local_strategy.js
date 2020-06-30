@@ -1,6 +1,8 @@
 const passport = require("passport");
 const User = require("../models/user");
 
+// ======configuring local strategy for authentication=======
+
 const LocalStrategy = require("passport-local").Strategy;
 
 passport.use(
@@ -10,6 +12,7 @@ passport.use(
     },
     function (email, password, done) {
       User.findOne({ email: email }, function (err, user) {
+        //=======finding user by emails======
         if (err) {
           console.log("Error in finding user ---> Passport");
           return done(err);
@@ -20,6 +23,7 @@ passport.use(
         }
         if (user) {
           user.comparePassword(password, function (err, isMatch) {
+            //======finding users after decrypting password======
             if (err) {
               throw err;
             }

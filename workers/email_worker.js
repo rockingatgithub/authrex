@@ -1,3 +1,5 @@
+//=========storing mailer process in kue========
+
 const queue = require("../config/kue");
 
 const requestsMailer = require("../mailers/auth_mailer");

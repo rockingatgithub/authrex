@@ -1,12 +1,18 @@
 const User = require("../models/user");
 // const requestMailer = require("../mailers/auth_mailer");
 
+//=========configuring user controllers==========
+
 const emailWorkers = require("../workers/email_worker");
 const queue = require("../config/kue");
+
+// ======controllers for profile page=======
 
 module.exports.profile = function (req, res) {
   res.end("<h1>User Profile</h1>");
 };
+
+//=======controller for signup page========
 
 module.exports.signUp = function (req, res) {
   if (req.isAuthenticated()) {
@@ -18,6 +24,8 @@ module.exports.signUp = function (req, res) {
   });
 };
 
+// =====controller for signin page======
+
 module.exports.signIn = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
@@ -27,12 +35,15 @@ module.exports.signIn = function (req, res) {
   });
 };
 
+// ======establishing a new user========
+
 module.exports.create = function (req, res) {
   if (req.body.password != req.body.confirm_password) {
     return res.redirect("back");
   }
 
   User.findOne({ email: req.body.email }, function (err, user) {
+    //=====find existing users ======
     if (err) {
       console.log("error in finding user");
       return;
@@ -40,6 +51,7 @@ module.exports.create = function (req, res) {
 
     if (!user) {
       User.create(req.body, function (err, user) {
+        //=======create a new user========
         return res.redirect("/users/signIn");
       });
     } else {
@@ -67,6 +79,8 @@ module.exports.passwordResetRedirect = function (req, res) {
   });
 };
 
+// ====update users passwords ========
+
 module.exports.passwordUpdate = async function (req, res) {
   let user = await User.findOne({ email: req.body.email });
   if (user) {
@@ -91,6 +105,8 @@ module.exports.passwordUpdate = async function (req, res) {
   }
 };
 
+// =====reset form redirect========
+
 module.exports.resetFormRedirect = async function (req, res) {
   try {
     let user = await User.findOne({ email: req.params.email });
@@ -105,6 +121,8 @@ module.exports.resetFormRedirect = async function (req, res) {
     return res.redirect("/users/signIn");
   }
 };
+
+// ========updating passwords in database=======
 
 module.exports.dbPasswordUpdate = async function (req, res) {
   try {

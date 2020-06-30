@@ -1,5 +1,7 @@
 const nodemailer = require("../config/nodemailer");
 
+// ====== method to send mail which will be called by controllers ======
+
 exports.newRequest = (request) => {
   let htmlString = nodemailer.renderTemplate(
     { request: request },

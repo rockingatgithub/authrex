@@ -5,6 +5,8 @@ const googleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const crypto = require("crypto");
 const User = require("../models/user");
 
+// =======configuring for google authentication =======
+
 passport.use(
   new googleStrategy(
     {

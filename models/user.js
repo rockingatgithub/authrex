@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt"); //==========for storing passwords in encrypted form ========
 const SALT_WORK_FACTOR = 10;
-const Schema = mongoose.Schema;
+
+//======creting schema for storing usres data ==========
+
 const userSchema = new mongoose.Schema(
   {
     email: {
@@ -23,6 +25,8 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+//=====encrypting data before saving to database========
+
 userSchema.pre("save", function (next) {
   let user = this;
   if (!user.isModified("password")) {
@@ -42,6 +46,8 @@ userSchema.pre("save", function (next) {
     });
   });
 });
+
+// =====comparepassword method for comparing passwords after decrypting from database ========
 
 userSchema.methods.comparePassword = function (userPassword, cb) {
   bcrypt.compare(userPassword, this.password, function (err, isMatch) {
