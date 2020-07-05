@@ -11,7 +11,7 @@ exports.newRequest = (request) => {
 
   nodemailer.transporter.sendMail(
     {
-      from: "", //give senders mail id.....
+      from: "sidproductionmail@gmail.com", //give senders mail id.....
       to: request.email,
       subject: "To change your password",
       html: htmlString,

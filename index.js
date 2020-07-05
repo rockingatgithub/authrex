@@ -1,4 +1,7 @@
 const express = require("express");
+const env = require("./config/environment");
+const logger = require("morgan");
+const rfs = require("rotating-file-stream");
 const cookieParser = require("cookie-parser");
 const app = express();
 const port = 8000;
@@ -26,7 +29,11 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 //=========using static files from assets folder ==========
-app.use(express.static("./assets"));
+app.use(express.static(env.asset_path));
+
+// =========logger for production_logs==============
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 //==========midddlewares for using express-ejs-layouts =========
 app.use(expressLayouts);
@@ -42,7 +49,7 @@ app.set("views", "./views");
 app.use(
   session({
     name: "authrex",
-    secret: "blahsomething", //change secret as per your need....
+    secret: env.session_cookie_key, //change secret as per your need....
     saveUninitialized: false,
     resave: false,
     cookie: {

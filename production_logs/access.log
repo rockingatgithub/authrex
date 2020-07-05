@@ -1,0 +1,38 @@
+::ffff:127.0.0.1 - - [05/Jul/2020:10:10:31 +0000] "GET / HTTP/1.1" 200 1936 "http://localhost:8000/users/signIn" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0"
+::ffff:127.0.0.1 - - [05/Jul/2020:10:10:56 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0"
+::ffff:127.0.0.1 - - [05/Jul/2020:10:11:03 +0000] "GET /users/signOut HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0"
+::ffff:127.0.0.1 - - [05/Jul/2020:10:11:03 +0000] "GET / HTTP/1.1" 200 2074 "http://localhost:8000/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0"
+::ffff:127.0.0.1 - - [05/Jul/2020:10:11:04 +0000] "GET /favicon.ico HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0"
+[0mGET / [32m200[0m 20.262 ms - 1854[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET /users/signUp [32m200[0m 36.770 ms - 2458[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET /users/auth/google [36m302[0m 7.142 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F1gEls4ihs2XKGgbyChrVHW_djCNW3lcDwxyDG-_vdHFHjd1vOjBv4PEwomK2aK2oZhUr1-FrYeIC5EujwLYh07o&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=4&prompt=consent [36m302[0m 1917.039 ms - 46[0m
+[0mGET / [32m200[0m 20.295 ms - 2164[0m
+[0mGET /favicon.ico [33m404[0m 7.663 ms - 150[0m
+[0mGET /users/signOut [36m302[0m 5.523 ms - 46[0m
+[0mGET / [32m200[0m 2.991 ms - 2074[0m
+[0mGET /favicon.ico [33m404[0m 3.595 ms - 150[0m
+[0mGET /users/signIn [36m304[0m 4.700 ms - -[0m
+[0mGET /favicon.ico [33m404[0m 3.329 ms - 150[0m
+[0mGET /users/auth/google [36m302[0m 6.145 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F1gGOs8Z64oKIEct9C1EEWF_TxXIlS9g5cWKBn-B94_pwKACdmvjMk5vE9bRVtKxoTKF-Eg35poyQJlJjreH0QOQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent [36m302[0m 1520.084 ms - 46[0m
+[0mGET / [32m200[0m 4.899 ms - 2164[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET /users/resetPasswordPage [32m200[0m 5.413 ms - 1829[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mPOST /users/resetPassword [32m200[0m 29.022 ms - 1947[0m
+[0mGET /users/passwordReset/contactwithsid@gmail.com [32m200[0m 4903.065 ms - 2114[0m
+[0mGET /favicon.ico [33m404[0m 2.846 ms - 150[0m
+[0mPOST /users/changePassword [36m302[0m 51.057 ms - 70[0m
+[0mGET /users/signIn [32m200[0m 2.470 ms - 2382[0m
+[0mGET /favicon.ico [33m404[0m 3.367 ms - 150[0m
+[0mPOST /users/create-session [36m302[0m 92.561 ms - 70[0m
+[0mGET /users/signIn [32m200[0m 53.969 ms - 2382[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mPOST /users/create-session [36m302[0m 202.716 ms - 46[0m
+[0mGET / [32m200[0m 6.179 ms - 2153[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET /users/signOut [36m302[0m 5.626 ms - 46[0m
+[0mGET / [32m200[0m 3.163 ms - 2074[0m

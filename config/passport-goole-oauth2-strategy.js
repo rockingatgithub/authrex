@@ -1,5 +1,5 @@
 const passport = require("passport");
-
+const env = require("./environment");
 const googleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 const crypto = require("crypto");
@@ -11,9 +11,9 @@ passport.use(
   new googleStrategy(
     {
       //configure with your google ouath api credentials....
-      clientID: "",
-      clientSecret: "",
-      callbackURL: "",
+      clientID: env.google_clientID,
+      clientSecret: env.google_clientSecret,
+      callbackURL: env.google_callbackURL,
     },
     function (accessToken, refreshToken, profile, done) {
       User.findOne({ email: profile.emails[0].value }).exec(function (
